@@ -15,14 +15,14 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-const AddMovie = ({ handleadd }) => {
+const Editmovie = ({ filmz,handleEdit }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const [form, setForm] = useState({
-    name: '',
-    date: '',
-    img: '',
-    rating: 0,
+    name: filmz.name,
+    date: filmz.date,
+    img: filmz.img,
+    rating: filmz.rating,
   });
 
   const handlechange = (e) =>
@@ -31,8 +31,8 @@ const AddMovie = ({ handleadd }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let newMovie = { ...form, id: Math.random() };
-    handleadd(newMovie);
+    let newMovie = { ...form, id: filmz.id };
+    handleEdit(newMovie);
     closeModal();
   };
 
@@ -49,7 +49,7 @@ const AddMovie = ({ handleadd }) => {
   return (
     <div>
       <button className='btn-primary' onClick={openModal}>
-        Add movie
+        Edit
       </button>
       {/* <button className='btn-primary' onClick={closeModal}>
         Delete
@@ -74,4 +74,4 @@ const AddMovie = ({ handleadd }) => {
   );
 };
 
-export default AddMovie;
+export default Editmovie;

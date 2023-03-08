@@ -1,12 +1,14 @@
 import React from 'react'
 import MovieCard from './MovieCard'
 
-const MovieList = ({movie}) => {
+const MovieList = ({movie,handleDelete,handleEdit}) => {
   return (
     <div className='movie-list'  >
       {movie.map((film)=>(
-      <MovieCard  filmz={film}  />
+      <MovieCard handleDelete={handleDelete} filmz={film} handleEdit={handleEdit} />
+      
     ))}
+    
     
     
     </div>
