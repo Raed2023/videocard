@@ -1,6 +1,7 @@
 import React from 'react'
 import StarRating from './StarRating'
 import Editmovie from './Editmovie'
+import { Link } from 'react-router-dom'
 
 const MovieCard = ({filmz,handleDelete,handleEdit}) => {
   return (
@@ -14,6 +15,11 @@ const MovieCard = ({filmz,handleDelete,handleEdit}) => {
 <button className='btn-primary' onClick={() => handleDelete( filmz.id)}>
         Delete
       </button>
+      <Link to={`/Trailers/${filmz.id}`}>
+      <button className='btn-primary' >
+        Trailer
+      </button>
+      </Link>
       
       <Editmovie filmz={filmz} handleEdit={handleEdit} />
 
